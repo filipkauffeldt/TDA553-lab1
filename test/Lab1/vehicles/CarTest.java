@@ -53,7 +53,7 @@ public class CarTest {
 
     @Test
     public void moving_right_should_increase_x() {
-        Car car = new Volvo240(4, 100, Color.BLACK, "Volvo240");
+        Car car = new Volvo240();
         double originalX = car.getPosX();
         while (car.getDirection() != Direction.RIGHT) {
             car.turnRight();
@@ -66,7 +66,7 @@ public class CarTest {
 
     @Test
     public void moving_up_should_increase_y() {
-        Car car = new Volvo240(4, 100, Color.BLACK, "Volvo240");
+        Car car = new Volvo240();
         double originalY = car.getPosY();
         while (car.getDirection() != Direction.UP) {
             car.turnRight();
@@ -79,7 +79,7 @@ public class CarTest {
 
     @Test
     public void moving_left_should_decrease_x() {
-        Car car = new Volvo240(4, 100, Color.BLACK, "Volvo240");
+        Car car = new Volvo240();
         double originalX = car.getPosX();
         while (car.getDirection() != Direction.LEFT) {
             car.turnRight();
@@ -92,7 +92,7 @@ public class CarTest {
 
     @Test
     public void moving_down_should_decrease_y() {
-        Car car = new Volvo240(4, 100, Color.BLACK, "Volvo240");
+        Car car = new Volvo240();
         double originalY = car.getPosY();
         while (car.getDirection() != Direction.DOWN) {
             car.turnRight();
