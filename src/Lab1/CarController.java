@@ -49,6 +49,9 @@ public class CarController {
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
 
+        for(Vehicle vehicle : cc.vehicles)
+        cc.frame.drawPanel.addVehicle(vehicle, vehicle.getModelName(), (int)vehicle.getPosX(), (int)vehicle.getPosY());
+
         // Start the timer
         cc.timer.start();
     }
