@@ -47,12 +47,6 @@ public class DrawPanel extends JPanel {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        int tempIterableDontUse = 0;
-        for (Vehicle vehicle : vehiclePointMap.keySet()) {
-            addVehicle(vehicle, vehicle.getModelName(), x, y);
-            tempIterableDontUse += 100;
-        }
-
     }
 
     private void addVehicle(Vehicle vehicle, String image, int x, int y) {
