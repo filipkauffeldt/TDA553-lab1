@@ -4,7 +4,6 @@ import javax.swing.*;
 
 import java.awt.*;
 
-import Lab1.vehicles.Car;
 import Lab1.vehicles.Saab95;
 import Lab1.vehicles.Scania;
 import Lab1.vehicles.Vehicle;
@@ -62,10 +61,10 @@ public class CarController {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
                 vehicle.move();
-                frame.drawPanel.moveit();
                 // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
             }
+            frame.drawPanel.moveit();
+            frame.drawPanel.repaint();
         }
     }
 

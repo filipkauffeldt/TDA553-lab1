@@ -47,10 +47,15 @@ public class DrawPanel extends JPanel {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        int tempIterableDontUse = 0;
+        for (Vehicle vehicle : vehiclePointMap.keySet()) {
+            addVehicle(vehicle, vehicle.getModelName(), x, y);
+            tempIterableDontUse += 100;
+        }
 
     }
 
-    public void addVehicle(Vehicle vehicle, String image, int x, int y) {
+    private void addVehicle(Vehicle vehicle, String image, int x, int y) {
         vehiclePointMap.put(vehicle, new Point(x, y));
         switch (image) {
             case "Volvo240.jpg":
@@ -78,7 +83,7 @@ public class DrawPanel extends JPanel {
         }
     }
 
-    void moveit() {
+    public void moveit() {
         // Get position of the car and update the point in the map
         for (Vehicle vehicle : vehiclePointMap.keySet()) {
             vehiclePointMap.get(vehicle).x = (int) Math.round(vehicle.getPosX());
