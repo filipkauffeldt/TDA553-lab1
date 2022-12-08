@@ -2,7 +2,12 @@ package Lab1;
 
 import javax.swing.*;
 
+import java.awt.*;
+
 import Lab1.vehicles.Car;
+import Lab1.vehicles.Saab95;
+import Lab1.vehicles.Scania;
+import Lab1.vehicles.Vehicle;
 import Lab1.vehicles.Volvo240;
 
 import java.awt.event.ActionEvent;
@@ -27,7 +32,7 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Vehicle> vehicles = new ArrayList<>();
 
     //methods:
 
@@ -35,7 +40,11 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240());
+        cc.vehicles.add(new Volvo240());
+
+        cc.vehicles.add(new Saab95(Color.RED, "Saab95", true));
+
+        cc.vehicles.add(new  Scania(2, 200,1, Color.GREEN, "Scania", 6));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -49,10 +58,10 @@ public class CarController {
     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
-                car.move();
-                int x = (int) Math.round(car.getPosX());
-                int y = (int) Math.round(car.getPosY());
+            for (Vehicle vehicle : vehicles) {
+                vehicle.move();
+                int x = (int) Math.round(vehicle.getPosX());
+                int y = (int) Math.round(vehicle.getPosY());
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
@@ -63,9 +72,9 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car car : cars
+        for (Vehicle vehicle : vehicles
                 ) {
-            car.gas(gas);
+            vehicle.gas(gas);
         }
     }
 }

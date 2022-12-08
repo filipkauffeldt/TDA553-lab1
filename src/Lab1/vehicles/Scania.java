@@ -15,6 +15,7 @@ public class Scania extends Truck {
         super(nrDoors, enginePower, color, modelName, nrWheels);
         stopEngine();
         this.trailer = new Dumptruck(70, 0);
+        setPosY(200);
     }
 
     @Override
