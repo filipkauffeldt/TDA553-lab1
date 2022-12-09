@@ -14,9 +14,15 @@ public class CarTransporter extends Truck {
      * @param modelName
      * @param nrWheels
      */
+
+    private Transportbed transportBed;
+    
     public CarTransporter(int nrDoors, double enginePower, Color color, String modelName,
-            int nrWheels) {
+            int nrWheels, int capacity, double radius) {
         super(nrDoors, enginePower, color, modelName, nrWheels);
+
+        transportBed = new Transportbed(capacity, radius);
+        setTrailer(transportBed);
     }
 
     public double speedFactor() {
@@ -27,8 +33,12 @@ public class CarTransporter extends Truck {
         }
     }
 
-    public void addTransportBed(int capacity, double radius) {
-        trailer = new Transportbed(capacity, radius);
+    public void load(ILoadable loadObject) {
+        transportBed.load(loadObject);
+    }
+
+    public void unload(ILoadable loadedObject) {
+        transportBed.unload(loadedObject);
     }
 
 }
