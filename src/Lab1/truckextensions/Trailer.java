@@ -9,9 +9,4 @@ public interface Trailer {
 
     public void lowerRamp(double amount);
 
-    public double getCurrAngle();
-
-    public double getMaxAngle();
-
-    public double getMinAngle();
 }

@@ -12,7 +12,7 @@ public class ScaniaTest {
     public void raising_platform_should_not_be_more_than_maxAngle() {
         Scania scania = new Scania(2, 100, 0, Color.GREEN, "Scania", 8);
         scania.trailer.raiseRamp(100);
-        assertEquals(scania.trailer.getMaxAngle(), scania.trailer.getCurrAngle());
+        assertEquals(scania.getMaxAngle(), scania.getCurrAngle());
 
     }
 
@@ -20,7 +20,7 @@ public class ScaniaTest {
     public void lowering_platform_should_not_be_more_than_lowestAngle() {
         Scania scania = new Scania(2, 100, 0, Color.GREEN, "Scania", 0);
         scania.trailer.lowerRamp(100);
-        assertEquals(scania.trailer.getMinAngle(), scania.trailer.getCurrAngle());
+        assertEquals(scania.getMinAngle(), scania.getCurrAngle());
     }
 
     @Test

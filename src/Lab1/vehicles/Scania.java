@@ -6,6 +6,8 @@ import Lab1.truckextensions.Dumptruck;
 
 public class Scania extends Truck {
 
+    private Dumptruck dumptruck;
+
     public Scania(
             int nrDoors,
             double enginePower,
@@ -14,7 +16,8 @@ public class Scania extends Truck {
             int nrWheels) {
         super(nrDoors, enginePower, color, modelName, nrWheels);
         stopEngine();
-        this.trailer = new Dumptruck(70, 0);
+        dumptruck = new Dumptruck(70, 0);
+        setTrailer(dumptruck);
     }
 
     @Override
@@ -24,5 +27,13 @@ public class Scania extends Truck {
         } else {
             return getEnginePower() * 0.01;
         }
+    }
+
+    public void raiseRamp(double amount) {
+        trailer.raiseRamp(amount);
+    }
+
+    public void lowerRamp(double amount) {
+        trailer.lowerRamp(amount);
     }
 }
