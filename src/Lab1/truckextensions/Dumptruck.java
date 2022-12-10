@@ -6,6 +6,7 @@ public class Dumptruck implements Trailer {
     private double minAngle = 0d;
     private double posX;
     private double posY;
+    private boolean rampIsMoving;
 
     public Dumptruck(double maxAngle, double minAngle) {
         this.maxAngle = maxAngle;
@@ -17,6 +18,7 @@ public class Dumptruck implements Trailer {
     }
 
     private void setCurrAngle(double currentAngle) {
+        //TODO DO SOMETHING!!!
         if (currentAngle > maxAngle) {
             this.currAngle = maxAngle;
 
@@ -35,15 +37,35 @@ public class Dumptruck implements Trailer {
     }
 
     public void raiseRamp(double amount) {
+        
         setCurrAngle(getCurrAngle() + amount);
+        rampIsMoving = !checkCurrAngle();
+        
+
     }
 
     public void lowerRamp(double amount) {
         setCurrAngle(getCurrAngle() - amount);
+        rampIsMoving = !checkCurrAngle();
+    }
+
+    private Boolean checkCurrAngle(){
+        if(currAngle == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public Boolean allowDriving() {
-        return currAngle == 0d;
+        if(checkCurrAngle() && !rampIsMoving){
+        return true;
+        }
+        else{
+            return false;
+        }
+        
     }
 
     public double getMaxAngle() {
