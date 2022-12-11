@@ -12,6 +12,7 @@ import Lab1.vehicles.Volvo240;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collection;
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -32,29 +33,33 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Vehicle> vehicles = new ArrayList<>();
+    ArrayList<Vehicle> vehicles;
 
     // methods:
 
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
+    // public static void main(String[] args) {
+    //     // Instance of this class
+    //     CarController cc = new CarController();
 
-        cc.vehicles.add(new Volvo240());
+    //     cc.vehicles.add(new Volvo240());
 
-        cc.vehicles.add(new Saab95(Color.RED, "Saab95", true));
+    //     cc.vehicles.add(new Saab95(Color.RED, "Saab95", true));
 
-        cc.vehicles.add(new Scania(2, 200, 1, Color.GREEN, "Scania", 6));
+    //     cc.vehicles.add(new Scania(2, 200, 1, Color.GREEN, "Scania", 6));
 
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+    //     // Start a new view and send a reference of self
+    //     cc.frame = new CarView("CarSim 1.0", cc);
 
-        for(Vehicle vehicle : cc.vehicles)
-        cc.frame.drawPanel.addVehicle(vehicle, vehicle.getModelName(), (int)vehicle.getPosX(), (int)vehicle.getPosY());
+    //     for(Vehicle vehicle : cc.vehicles)
+    //     cc.frame.drawPanel.addVehicle(vehicle, vehicle.getModelName(), (int)vehicle.getPosX(), (int)vehicle.getPosY());
 
-        // Start the timer
-        cc.timer.start();
-    }
+    //     // Start the timer
+    //     cc.timer.start();
+    // }
+
+        public CarController(ArrayList<Vehicle> vehicles) {
+            this.vehicles = vehicles;
+        }
 
     /*
      * Each step the TimerListener moves all the cars in the list and tells the
