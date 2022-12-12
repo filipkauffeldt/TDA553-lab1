@@ -16,8 +16,8 @@ public class Program {
         vehicles.add(new Scania(2, 125, 0, Color.BLACK, "Scania", 6));
         var controller = new CarController(vehicles);
 
-        while(true) {
-            
+        while (true) {
+
         }
     }
 }
