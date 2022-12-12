@@ -41,7 +41,6 @@ public class CarView extends JFrame {
         gasPanel.setLayout(new BorderLayout());
         controlPanel.setLayout(new GridLayout(2, 4));
         controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
-
     }
 
     public void initComponents() {
