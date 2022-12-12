@@ -37,6 +37,7 @@ public class CarController {
     private void createButtons() {
         JPanel gasPanel = carView.gasPanel;
         JPanel controlPanel = carView.controlPanel;
+        carView.initComponents();
 
         JSpinner gasSpinner = new JSpinner();
         SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
@@ -60,10 +61,8 @@ public class CarController {
         JButton startButton = new JButton("Start all cars");
         JButton stopButton = new JButton("Stop all cars");
 
-        gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
         gasPanel.add(carView.gasLabel, BorderLayout.PAGE_START);
-        carView.add(gasPanel);
 
         controlPanel.setLayout(new GridLayout(2, 4));
         controlPanel.add(gasButton, 0);
@@ -72,12 +71,10 @@ public class CarController {
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
-        controlPanel.setPreferredSize(new Dimension((carView.getX() / 2) + 4, 200));
-        carView.add(controlPanel);
-        controlPanel.setBackground(Color.CYAN);
 
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
+
         startButton.setPreferredSize(new Dimension(carView.getX() / 5 - 15, 200));
         carView.add(startButton);
 

@@ -10,11 +10,12 @@ import Lab1.vehicles.Volvo240;
 
 public class Program {
     public static void main(String[] args) {
-        var vehicles = new ArrayList<Vehicle>();
-        vehicles.add(new Volvo240());
-        vehicles.add(new Saab95(Color.BLACK, "Saab95", true));
-        vehicles.add(new Scania(2, 125, 0, Color.BLACK, "Scania", 6));
-        var controller = new CarController(vehicles);
+        CarModel carModel = new CarModel();
+        CarView carView = new CarView("CarSim 1.0");
+        carModel.addCar(new Volvo240());
+        carModel.addCar(new Saab95(Color.BLACK, "Saab95", true));
+        carModel.addCar(new Scania(2, 125, 0, Color.BLACK, "Scania", 6));
+        CarController controller = new CarController(carView, carModel);
 
         while (true) {
 
