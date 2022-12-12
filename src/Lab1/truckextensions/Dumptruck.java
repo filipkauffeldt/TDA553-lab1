@@ -18,7 +18,6 @@ public class Dumptruck implements Trailer {
     }
 
     private void setCurrAngle(double currentAngle) {
-        //TODO DO SOMETHING!!!
         if (currentAngle > maxAngle) {
             this.currAngle = maxAngle;
 
@@ -39,17 +38,16 @@ public class Dumptruck implements Trailer {
     public void raiseRamp(double amount) {
         
         setCurrAngle(getCurrAngle() + amount);
-        rampIsMoving = !checkCurrAngle();
-        
-
+        rampIsMoving = !dumperIsDown();
+     
     }
 
     public void lowerRamp(double amount) {
         setCurrAngle(getCurrAngle() - amount);
-        rampIsMoving = !checkCurrAngle();
+        rampIsMoving = !dumperIsDown();
     }
 
-    private Boolean checkCurrAngle(){
+    private Boolean dumperIsDown(){
         if(currAngle == 0){
             return true;
         }
@@ -59,7 +57,7 @@ public class Dumptruck implements Trailer {
     }
 
     public Boolean allowDriving() {
-        if(checkCurrAngle() && !rampIsMoving){
+        if(dumperIsDown() && !rampIsMoving){
         return true;
         }
         else{
