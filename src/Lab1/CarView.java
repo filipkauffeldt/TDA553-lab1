@@ -23,8 +23,8 @@ public class CarView extends JFrame {
 
     DrawPanel drawPanel = new DrawPanel(X, Y - 240);
     JPanel controlPanel = new JPanel();
-
     JPanel gasPanel = new JPanel();
+
     private String frameName;
     int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
@@ -37,23 +37,18 @@ public class CarView extends JFrame {
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and
     // components work
+    public void createPanels() {
+        gasPanel.setLayout(new BorderLayout());
+        controlPanel.setLayout(new GridLayout(2, 4));
+        controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
+
+    }
+
     public void initComponents() {
         this.setTitle(frameName);
         this.setPreferredSize(new Dimension(X, Y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
-        this.add(drawPanel);
-        gasPanel.setLayout(new BorderLayout());
-        this.add(gasPanel);
 
-        controlPanel.setLayout(new GridLayout(2, 4));
-        controlPanel.setPreferredSize(new Dimension((this.getX() / 2) + 4, 200));
-        this.add(controlPanel);
-        controlPanel.setBackground(Color.CYAN);
-
-        // This actionListener is for the gas button only
-        // TODO: Create more for each component as necessary
-
-        // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
 
         // Get the computer screen resolution

@@ -28,17 +28,29 @@ public class CarController {
     CarModel carModel;
     int gasAmount = 0;
 
+    JButton gasButton = new JButton("Gas");
+    JButton brakeButton = new JButton("Brake");
+    JButton turboOnButton = new JButton("Saab Turbo on");
+    JButton turboOffButton = new JButton("Saab Turbo off");
+    JButton liftBedButton = new JButton("Scania Lift Bed");
+    JButton lowerBedButton = new JButton("Lower Lift Bed");
+
+    JButton startButton = new JButton("Start all cars");
+    JButton stopButton = new JButton("Stop all cars");
+
     CarController(CarView carView, CarModel carModel) {
         this.carView = carView;
         this.carModel = carModel;
-        createButtons();
+        createContainersInView();
+        addComponentsToPanels();
+        initializeView();
     }
 
-    private void createButtons() {
-        JPanel gasPanel = carView.gasPanel;
-        JPanel controlPanel = carView.controlPanel;
-        carView.initComponents();
+    private void createContainersInView() {
+        carView.createPanels();
+    }
 
+    private void addComponentsToPanels() {
         JSpinner gasSpinner = new JSpinner();
         SpinnerModel spinnerModel = new SpinnerNumberModel(0, // initial value
                 0, // min
@@ -50,31 +62,25 @@ public class CarController {
                 gasAmount = (int) ((JSpinner) e.getSource()).getValue();
             }
         });
+        carView.gasPanel.add(carView.gasLabel, BorderLayout.PAGE_START);
+        carView.gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
 
-        JButton gasButton = new JButton("Gas");
-        JButton brakeButton = new JButton("Brake");
-        JButton turboOnButton = new JButton("Saab Turbo on");
-        JButton turboOffButton = new JButton("Saab Turbo off");
-        JButton liftBedButton = new JButton("Scania Lift Bed");
-        JButton lowerBedButton = new JButton("Lower Lift Bed");
+        carView.controlPanel.add(gasButton, 0);
+        carView.controlPanel.add(turboOnButton, 1);
+        carView.controlPanel.add(liftBedButton, 2);
+        carView.controlPanel.add(brakeButton, 3);
+        carView.controlPanel.add(turboOffButton, 4);
+        carView.controlPanel.add(lowerBedButton, 5);
 
-        JButton startButton = new JButton("Start all cars");
-        JButton stopButton = new JButton("Stop all cars");
+    }
 
-        gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
-        gasPanel.add(carView.gasLabel, BorderLayout.PAGE_START);
-
-        controlPanel.setLayout(new GridLayout(2, 4));
-        controlPanel.add(gasButton, 0);
-        controlPanel.add(turboOnButton, 1);
-        controlPanel.add(liftBedButton, 2);
-        controlPanel.add(brakeButton, 3);
-        controlPanel.add(turboOffButton, 4);
-        controlPanel.add(lowerBedButton, 5);
+    private void initializeView() {
+        carView.add(carView.drawPanel);
+        carView.add(carView.gasPanel);
+        carView.add(carView.controlPanel);
 
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
-
         startButton.setPreferredSize(new Dimension(carView.getX() / 5 - 15, 200));
         carView.add(startButton);
 
@@ -82,14 +88,7 @@ public class CarController {
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(carView.getX() / 5 - 15, 200));
         carView.add(stopButton);
+        carView.initComponents();
     }
-
-    // The timer is started with an listener (see below) that executes the
-    // statements
-    // each step between delays.
-    /*
-     * Each step the TimerListener moves all the cars in the list and tells the
-     * view to update its images. Change this method to your needs.
-     */
 
 }
