@@ -26,7 +26,7 @@ public class CarController {
     // member fields:
     CarView carView;
     CarModel carModel;
-    int gasAmount = 0;
+    double gasAmount = 5d;
 
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
@@ -37,6 +37,8 @@ public class CarController {
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
+
+    private double gasAmmount = 0;
 
     CarController(CarView carView, CarModel carModel) {
         this.carView = carView;
@@ -59,7 +61,8 @@ public class CarController {
         gasSpinner = new JSpinner(spinnerModel);
         gasSpinner.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
+                gasAmmount = (Integer) ((JSpinner) e.getSource()).getValue();
+                System.out.println(gasAmmount);
             }
         });
         carView.gasPanel.add(carView.gasLabel, BorderLayout.PAGE_START);
@@ -71,6 +74,27 @@ public class CarController {
         carView.controlPanel.add(brakeButton, 3);
         carView.controlPanel.add(turboOffButton, 4);
         carView.controlPanel.add(lowerBedButton, 5);
+
+        // gasSpinner.addChangeListener(new ChangeListener() {
+        //     @Override
+        //     public void stateChanged(ChangeEvent e) {
+        //         gasAmount = 0;
+        //         var val = ((JSpinner)e.getSource()).getValue();
+                
+                 
+        //         gasAmmount = Double.parseDouble(val.toString());
+        //         System.out.println("gasAmmount: " + gasAmount);
+        //         System.out.println(val);
+        //     }
+        // });
+
+        gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carModel.gasAll(gasAmmount/100d);
+                System.out.println("gasAll");
+            }
+        });
 
     }
 

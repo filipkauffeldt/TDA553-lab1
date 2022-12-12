@@ -52,13 +52,13 @@ public class DrawPanel extends JPanel {
     public void addVehicle(Vehicle vehicle, String image, int x, int y) {
         vehiclePointMap.put(vehicle, new Point(x, y));
         switch (image) {
-            case "Volvo240":
+            case "Volvo240.jpg":
                 vehicleImageMap.put(vehicle, volvoImage);
                 break;
-            case "Saab95":
+            case "Saab95.jpg":
                 vehicleImageMap.put(vehicle, saabImage);
                 break;
-            case "Scania":
+            case "Scania.jpg":
                 vehicleImageMap.put(vehicle, scaniaImage);
                 break;
             default:
