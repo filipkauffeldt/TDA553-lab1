@@ -70,6 +70,13 @@ public class CarController {
             frame.drawPanel.repaint();
         }
     }
+    
+    gasButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            carC.gas(gasAmount);
+        }
+    });
 
     // Calls the gas method for each car once
     void gas(int amount) {
