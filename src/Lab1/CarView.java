@@ -95,11 +95,4 @@ public class CarView extends JFrame implements IUpdateable {
         return Y;
     }
 
-    public enum vehicleModels {
-        VOLVO240,
-        SAAB95,
-        SCANIA
-    };
-
-
 }

@@ -62,7 +62,6 @@ public class CarController {
         gasSpinner.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 gasAmmount = (Integer) ((JSpinner) e.getSource()).getValue();
-                System.out.println(gasAmmount);
             }
         });
         carView.gasPanel.add(carView.gasLabel, BorderLayout.PAGE_START);
@@ -92,7 +91,6 @@ public class CarController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carModel.gasAll(gasAmmount/100d);
-                System.out.println("gasAll");
             }
         });
 
