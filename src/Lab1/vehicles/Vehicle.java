@@ -20,7 +20,7 @@ public abstract class Vehicle implements IMovable {
         this.modelName = modelName;
         this.posX = 0;
         this.posY = 0;
-        this.currentDirection = Direction.UP;
+        this.currentDirection = Direction.RIGHT;
     }
 
     public enum Direction {

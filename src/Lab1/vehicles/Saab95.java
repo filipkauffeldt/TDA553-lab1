@@ -9,6 +9,7 @@ public class Saab95 extends Car implements ITurboable {
             boolean turboOn) {
         super(2, 125, color, modelName);
         this.turboOn = turboOn;
+        setPosY(100);
         stopEngine();
     }
 

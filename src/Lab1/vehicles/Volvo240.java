@@ -6,7 +6,7 @@ public class Volvo240 extends Car implements ITrimmable {
 
     private double trimFactor = 1.25;
 
-    public Volvo240(int nrDoors, double enginePower, Color color, String modelName) {
+    public Volvo240() {
         super(4, 100, Color.black, "Volvo240");
         stopEngine();
     }
