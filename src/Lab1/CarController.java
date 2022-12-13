@@ -26,7 +26,7 @@ public class CarController {
     // member fields:
     CarView carView;
     CarModel carModel;
-    double gasAmount = 5d;
+    double gasAmount;
 
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
