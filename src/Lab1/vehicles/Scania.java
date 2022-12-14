@@ -22,7 +22,7 @@ public class Scania extends Truck {
     public double speedFactor() {
         if (!trailer.allowDriving()) {
             return 0;
-        } else {
+        } else { 
             return getEnginePower() * 0.01;
         }
     }
