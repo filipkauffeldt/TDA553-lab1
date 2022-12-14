@@ -2,6 +2,7 @@ package Lab1;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
 import Lab1.vehicles.Saab95;
 import Lab1.vehicles.Scania;
@@ -18,7 +19,7 @@ public class Program {
         CarController controller = new CarController(carView, carModel);
 
 
-        ArrayList<IUpdateable> updateableList = new ArrayList<IUpdateable>();
+        List<IUpdateable> updateableList = new ArrayList<IUpdateable>();
         updateableList.add(carModel);
         updateableList.add(carView);
         TimerListener timerListener = new TimerListener(updateableList);
