@@ -41,18 +41,4 @@ public class CarTransporter extends Truck {
         transportBed.unload(loadedObject);
     }
 
-    public void raiseRamp() {
-        if(getCurrentSpeed()> 0) {
-            throw new IllegalStateException("Cannot raise ramp while moving");
-        }
-        transportBed.raiseRamp(1);
-    }
-
-    public void lowerRamp() {
-        if(getCurrentSpeed()> 0) {
-            throw new IllegalStateException("Cannot lower ramp while moving");
-        }
-        transportBed.lowerRamp(1);
-    }
-
 }
