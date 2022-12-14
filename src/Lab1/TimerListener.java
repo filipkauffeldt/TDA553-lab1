@@ -10,7 +10,7 @@ public class TimerListener{
     private List<IUpdateable> updateableList;
     private static int delay = 50;
     private Timer timer;
-    public TimerListener(ArrayList<IUpdateable> updateableList) {
+    public TimerListener(List<IUpdateable> updateableList) {
         this.updateableList = updateableList;
         timer = new Timer(delay, new TimerListenerDoesAction());
     }

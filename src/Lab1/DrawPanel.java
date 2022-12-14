@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -24,8 +25,8 @@ public class DrawPanel extends JPanel {
     BufferedImage saabImage;
     BufferedImage scaniaImage;
 
-    HashMap<Vehicle, Point> vehiclePointMap = new HashMap<>();
-    HashMap<Vehicle, BufferedImage> vehicleImageMap = new HashMap<>();
+    Map<Vehicle, Point> vehiclePointMap = new HashMap<>();
+    Map<Vehicle, BufferedImage> vehicleImageMap = new HashMap<>();
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
