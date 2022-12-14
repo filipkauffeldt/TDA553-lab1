@@ -26,4 +26,18 @@ public class Scania extends Truck {
             return getEnginePower() * 0.01;
         }
     }
+
+    public void raiseRamp(double ammount) {
+        if (getCurrentSpeed() > 0) {
+            throw new IllegalStateException("Cannot raise ramp while moving");
+        }
+        trailer.raiseRamp(ammount);
+    }
+
+    public void lowerRamp(double amount) {
+        if (getCurrentSpeed() > 0) {
+            throw new IllegalStateException("Cannot lower ramp while moving");
+        }
+        trailer.lowerRamp(amount);
+    }
 }
